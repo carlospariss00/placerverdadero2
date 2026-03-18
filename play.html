@@ -12,8 +12,12 @@
 <body>
     <script>
 document.addEventListener('click', function () {
-    if (!window.popShown) {
-        window.popShown = true;
+    const lastShown = localStorage.getItem('popShownTime');
+    const now = Date.now();
+    const twelveHours = 12 * 60 * 60 * 1000;
+
+    if ((!lastShown || now - lastShown > twelveHours) && window.aclib) {
+        localStorage.setItem('popShownTime', now);
         aclib.runPop({
             zoneId: '11082450',
         });
