@@ -10,12 +10,21 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <script type="text/javascript">
-    aclib.runPop({
-        zoneId: '11082450',
-    });
-</script>
+    <script>
+document.addEventListener('click', function () {
+    const lastShown = localStorage.getItem('popShownTime');
+    const now = Date.now();
+    const twelveHours = 6 * 60 * 60 * 1000;
 
+    if ((!lastShown || now - lastShown > twelveHours) && window.aclib) {
+        localStorage.setItem('popShownTime', now);
+        aclib.runPop({
+            zoneId: '11082450',
+        });
+    }
+});
+
+</script>
     <div class="container">
         <video id="videoPlayer" controls autoplay controlsList="nodownload" oncontextmenu="return false;"></video>
         <div style="margin-top: 20px;">
