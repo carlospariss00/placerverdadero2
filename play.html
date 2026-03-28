@@ -10,20 +10,12 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <script>
-document.addEventListener('click', function () {
-    const lastShown = localStorage.getItem('popShownTime');
-    const now = Date.now();
-    const thirtyMinutes = 30 * 60 * 1000;
-
-    if ((!lastShown || now - lastShown > thirtyMinutes) && window.aclib) {
-        localStorage.setItem('popShownTime', now);
-        aclib.runPop({
-            zoneId: '11082450',
-        });
-    }
-});
+<script type="text/javascript">
+    aclib.runPop({
+        zoneId: '11082450',
+    });
 </script>
+
     <div class="container">
         <video id="videoPlayer" controls autoplay controlsList="nodownload" oncontextmenu="return false;"></video>
         <div style="margin-top: 20px;">
