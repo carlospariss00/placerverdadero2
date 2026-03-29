@@ -35,7 +35,7 @@ function renderPage(page) {
             <div class="video-title">${video.title}</div>
         `;
         div.onclick = () => {
-            window.location.href = `play.html?video=${encodeURIComponent(video.src)}`;
+            window.location.href = `play.html?v=${video.id}`;
         };
         gallery.appendChild(div);
     });
